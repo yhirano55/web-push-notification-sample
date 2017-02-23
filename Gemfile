@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'serviceworker-rails'
 gem 'webpush'
 gem 'dotenv-rails'
+gem 'gemoji'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
