@@ -59,6 +59,23 @@ function onFetch(event) {
   );
 }
 
-self.addEventListener('install', onInstall);
-self.addEventListener('activate', onActivate);
-self.addEventListener('fetch', onFetch);
+// self.addEventListener('install', onInstall);
+// self.addEventListener('activate', onActivate);
+// self.addEventListener('fetch', onFetch);
+
+function onPush(event) {
+  try {
+    var message = event.data.json();
+  } catch(e) {
+    var message = { title: 'test', body: 'test notification' };
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(message.title, {
+      body: message.body,
+      icon: '<%= asset_path "icon.png" %>'
+    })
+  );
+}
+
+self.addEventListener('push', onPush);
