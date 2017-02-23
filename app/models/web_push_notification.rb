@@ -1,0 +1,2 @@
+class WebPushNotification < ApplicationRecord
+end
