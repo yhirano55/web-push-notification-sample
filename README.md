@@ -1,24 +1,19 @@
-# README
+# WebPushNotificationSample
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Dependencies
 
-Things you may want to cover:
+- [webpush](https://github.com/zaru/webpush) - webpush, Encryption Utilities for Web Push protocol
+- [serviceworker-rails](https://github.com/rossta/serviceworker-rails) - Use Service Worker with the Rails asset pipeline
+- [dotenv](https://github.com/bkeepers/dotenv) - A Ruby gem to load environment variables from `.env`.
+- [gemoji](https://github.com/github/gemoji) - Emoji images and names.
 
-* Ruby version
+## Setup
 
-* System dependencies
+```ruby
+# One-time, on the server
+vapid_key = Webpush.generate_key
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Save these in your application server settings
+vapid_key.public_key  # set env VAPID_PUBLIC_KEY
+vapid_key.private_key # set env VAPID_PRIVATE_KEY
+```
