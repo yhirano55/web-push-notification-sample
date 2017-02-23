@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       resources :subscriptions, only: :create
     end
   end
+
+  root "web_push_notifications#index"
 end
