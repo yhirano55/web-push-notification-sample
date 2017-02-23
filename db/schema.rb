@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170223044924) do
 
   create_table "web_push_notifications", force: :cascade do |t|
     t.string   "title"
-    t.string   "message"
+    t.string   "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
