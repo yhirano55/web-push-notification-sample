@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223044924) do
+ActiveRecord::Schema.define(version: 20170223062610) do
 
   create_table "subscriptions", force: :cascade do |t|
     t.string   "endpoint"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170223044924) do
     t.string   "auth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["endpoint"], name: "index_subscriptions_on_endpoint"
   end
 
   create_table "web_push_notifications", force: :cascade do |t|
