@@ -1,0 +1,16 @@
+if ("serviceWorker" in navigator) {
+  document.addEventListener('DOMContentLoaded', function () {
+    window.vapidPublicKey = new Uint8Array(<%= Base64.urlsafe_decode64(ENV['VAPID_PUBLIC_KEY']).bytes %>);
+    navigator.serviceWorker.register('/serviceworker.js');
+    navigator.serviceWorker.ready
+      .then(function(registration) {
+        return registration.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: window.vapidPublicKey,
+        });
+      })
+      .then(function(subscription) {
+        $.post('/api/v1/subscriptions', { subscription: subscription.toJSON() });
+      });
+  });
+}
