@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Web Push Notifications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Message</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @web_push_notifications.each do |web_push_notification| %>
+      <tr>
+        <td><%= web_push_notification.title %></td>
+        <td><%= web_push_notification.body %></td>
+        <td><%= link_to 'Show', web_push_notification %></td>
+        <td><%= link_to 'Edit', edit_web_push_notification_path(web_push_notification) %></td>
+        <td><%= link_to 'Destroy', web_push_notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Web Push Notification', new_web_push_notification_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @web_push_notification.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @web_push_notification.body %>
+</p>
+
+<%= link_to 'Edit', edit_web_push_notification_path(@web_push_notification) %> |
+<%= link_to 'Back', web_push_notifications_path %>
